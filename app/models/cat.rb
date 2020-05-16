@@ -21,7 +21,7 @@ class Cat < ApplicationRecord
     CAT_COLORS = %w(white black brown orange).freeze
 
     validates :birth_date, :color, :name, :sex, presence: true
-    validates :name, uniqueness: true
+    validates :name
     validates :sex, inclusion: %w(F M)
     validates :color, inclusion: CAT_COLORS
     validate :born_previously
