@@ -13,7 +13,7 @@
 #
 # Indexes
 #
-#  index_cats_on_name  (name) UNIQUE
+#  index_cats_on_name  (name)
 #
 class Cat < ApplicationRecord
     include ActionView::Helpers::DateHelper
