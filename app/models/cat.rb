@@ -25,6 +25,12 @@ class Cat < ApplicationRecord
     validates :color, inclusion: CAT_COLORS
     validate :born_previously
 
+    has_many :rental_requests,
+        primary_key: :id,
+        foreign_key: :cat_id,
+        class_name: 'CatRentalRequest',
+        dependent: :destroy
+
     # private
     def age
         time_ago_in_words(birth_date)
