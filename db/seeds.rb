@@ -6,13 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Cat.destroy_all
+CatRentalRequest.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('cats')
+ApplicationRecord.connection.reset_pk_sequence!('cat_rental_requests')
+
+next_year = Date.today.next_year.year.to_s
 
 10.times do 
-    Cat.create({
+    cat = Cat.create({
         name: Faker::Superhero.name,
         color: Cat::CAT_COLORS.sample,
         sex: %w(F M).sample,
         birth_date: Faker::Date.birthday(min_age: 1, max_age: 20)
+    })
+
+    CatRentalRequest.create({
+        cat_id: cat.id,
+        start_date: Date.parse("#{next_year}-01-01"),
+        end_date: Date.parse("#{next_year}-01-06")
     })
 end
