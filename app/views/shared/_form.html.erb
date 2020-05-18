@@ -1,7 +1,7 @@
-<% action = (cat.name.nil? ? cats_url : cat_url(cat)) %>
+<% action = (cat.persisted? ? cat_url(cat) : cats_url) %>
 
 <form action="<%= action %>" method="post">
-    <% unless cat.name.nil? %>
+    <% if cat.persisted? %>
         <input type="hidden" name="_method" value="PATCH">
     <% end %>
 
