@@ -45,4 +45,16 @@ class CatRentalRequest < ApplicationRecord
     def overlapping_pending_requests
         overlapping_requests.where(status: 'PENDING')
     end
+
+    def approve!
+        ActiveRecord::Base.transaction do
+            overlapping_pending_requests.each do |r| 
+                r.status = 'DENIED'
+                r.save!
+            end
+            self.status = 'APPROVED'
+            self.save
+        end
+    end
+
 end
