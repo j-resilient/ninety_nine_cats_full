@@ -4,7 +4,7 @@ class CatRentalRequestsController < ApplicationController
     end
 
     def create
-        new_request = CatRentalRequest.create(request_params)
+        new_request = CatRentalRequest.new(request_params)
         if new_request.save
             redirect_to cat_url(request_params[:cat_id])
         else

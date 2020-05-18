@@ -18,7 +18,7 @@ class CatsController < ApplicationController
     end
 
     def create
-        new_cat = Cat.create(cat_params)
+        new_cat = Cat.new(cat_params)
         if new_cat.save
             redirect_to cats_url
         else
