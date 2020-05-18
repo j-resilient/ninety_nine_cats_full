@@ -41,4 +41,8 @@ class CatRentalRequest < ApplicationRecord
             errors[:Cannot] << "request cat during this period, cat is already reserved."
         end
     end
+
+    def overlapping_pending_requests
+        overlapping_requests.where(status: 'PENDING')
+    end
 end
