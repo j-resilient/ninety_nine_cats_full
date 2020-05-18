@@ -5,10 +5,10 @@ class CatRentalRequestsController < ApplicationController
 
     def create
         new_request = CatRentalRequest.create(request_params)
-        if new_request.save!
+        if new_request.save
             redirect_to cat_url(request_params[:cat_id])
         else
-            render plain: "Could not save request."
+            render json: new_request.errors.full_messages, status: unprocessable_entity
         end
     end
 
