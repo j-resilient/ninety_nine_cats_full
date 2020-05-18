@@ -47,6 +47,8 @@ class CatRentalRequest < ApplicationRecord
     end
 
     def approve!
+        return unless self.status == 'PENDING'
+
         ActiveRecord::Base.transaction do
             overlapping_pending_requests.each do |r| 
                 r.status = 'DENIED'
@@ -57,4 +59,10 @@ class CatRentalRequest < ApplicationRecord
         end
     end
 
+    def deny!
+        return unless self.status == 'PENDING'
+
+        self.status = 'DENIED'
+        self.save
+    end
 end
