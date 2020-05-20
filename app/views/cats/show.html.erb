@@ -29,11 +29,16 @@
         <th>End Date</th>
         <th>Status</th>
     </tr>
-    <% @current_cat.rental_requests.each do |request| %>
+    <% @current_cat.rental_requests.each do |r| %>
         <tr>
-            <td><%= request.start_date %></td>
-            <td><%= request.end_date %></td>
-            <td><%= request.status %></td>
+            <td><%= r.start_date %></td>
+            <td><%= r.end_date %></td>
+            <td><%= r.status %></td>
+            <% if r.pending? %>
+                <td><%= button_to "Approve", approve_cat_rental_request_url(r.id), method: :post %></td>
+                <td><%= button_to "Deny", deny_cat_rental_request_url(r.id), method: :post %></td>
+            <% end %>
+            
         </tr>
     <% end %>
 </table>
