@@ -8,7 +8,8 @@ class CatRentalRequestsController < ApplicationController
         if new_request.save
             redirect_to cat_url(request_params[:cat_id])
         else
-            render json: new_request.errors.full_messages, status: unprocessable_entity
+            flash.now[:errors] = new_request.errors.full_messages
+            render :new
         end
     end
 

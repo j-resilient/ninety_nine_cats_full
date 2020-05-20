@@ -8,7 +8,8 @@ class CatsController < ApplicationController
         if @current_cat
             render :show
         else
-            render plain: "Could not find cat."
+            flash.now[:errors] = ["Could not find cat."]
+            render :index
         end
     end
 
@@ -18,11 +19,12 @@ class CatsController < ApplicationController
     end
 
     def create
-        new_cat = Cat.new(cat_params)
-        if new_cat.save
-            redirect_to cats_url
+        @cat = Cat.new(cat_params)
+        if @cat.save
+            redirect_to cat_url(@cat)
         else
-            render json: new_cat.errors.full_messages, status: unprocessable_entity
+            flash.now[:errors] = @cat.errors.full_messages
+            render :new
         end
     end
 
@@ -32,12 +34,13 @@ class CatsController < ApplicationController
     end
 
     def update
-        cat = Cat.find_by(id: params[:id])
-
-        if cat.update(cat_params)
+        @cat = Cat.find_by(id: params[:id])
+        
+        if @cat.update(cat_params)
             redirect_to cat_url
         else
-            render json: cat.errors.full_messages
+            flash.now[:errors] = @cat.errors.full_messages
+            render :edit
         end
     end
 
