@@ -30,31 +30,26 @@ body {
     --dark-blue: #000066;
     --light-blue: #009999;
     color: yellow;
-    width: 100%;
     font-family: 'Amatic SC', cursive;
     font-size: 30px;
-}
-h1 {
-    font-size: 60px;
-}
-.logo {
-    border-bottom: yellow ;
 }
 .flex {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+nav {
+    background-color: var(--dark-blue);
+    padding: 0 20px;
+    height: 60px;
+}
 a {
+    text-decoration: underline;
+}
+nav a {
     padding: 0 10px;
 }
-/* Header */
-header {
-    background-color: var(--dark-blue);
-    width: 100%;
-}
-.header-nav {
-    width: 100%;
+.logo {
+    font-size: 60px;
     height: 60px;
-    padding: 0 20px;
 }
