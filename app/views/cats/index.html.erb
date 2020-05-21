@@ -1,7 +1,15 @@
 <%= render partial: 'shared/errors' %>
-<h1>Cats</h1>
-<ul>
-    <% Cat.all.each do |c| %>
-        <li> <%= link_to 'Rent ' + c.name, cat_url(c) %> </li>
-    <% end %>
-</ul>
+<section class="light-blue-box">
+    <nav class="flex">
+        <h1>All of the Cats In the World</h1>
+        <a href="<%= new_cat_url %>">
+            Add Cat
+            <i class="fa fa-plus"></i>
+        </a>
+    </nav>
+    <ul>
+        <% Cat.all.each do |c| %>
+            <li> <%= link_to 'Rent ' + c.name, cat_url(c) %> </li>
+        <% end %>
+    </ul>
+</section>

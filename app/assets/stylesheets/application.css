@@ -49,7 +49,14 @@ a {
 nav a {
     padding: 0 10px;
 }
-.logo {
-    font-size: 60px;
+.logo{
     height: 60px;
+}
+h1 {
+    font-size: 60px;
+}
+.light-blue-box {
+    background-color: var(--light-blue);
+    width: 920px;
+    margin: 50px auto;
 }
