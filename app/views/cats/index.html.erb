@@ -7,9 +7,12 @@
             <i class="fa fa-plus"></i>
         </a>
     </nav>
-    <ul>
+    <div class="cats-holder grid">
         <% Cat.all.each do |c| %>
-            <li> <%= link_to 'Rent ' + c.name, cat_url(c) %> </li>
+            <div class="cat-holder">
+                <img src="http://placekitten.com/231/231" alt="Placeholder pic of cat from placekitten.com">
+                <%= link_to 'Rent ' + c.name, cat_url(c) %>
+            </div>
         <% end %>
-    </ul>
+    </div>
 </section>

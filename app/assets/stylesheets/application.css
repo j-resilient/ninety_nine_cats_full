@@ -38,6 +38,11 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 40px 30px;
+}
 nav {
     background-color: var(--dark-blue);
     padding: 0 20px;
@@ -49,14 +54,23 @@ a {
 nav a {
     padding: 0 10px;
 }
-.logo{
-    height: 60px;
-}
 h1 {
     font-size: 60px;
 }
+/* Main Nav */
+.logo{
+    height: 60px;
+}
+/* Index page */
 .light-blue-box {
     background-color: var(--light-blue);
     width: 920px;
     margin: 50px auto;
+}
+.cats-holder {
+    padding: 20px;
+}
+.cat-holder {
+    background-color: var(--dark-blue);
+    padding: 20px;
 }
