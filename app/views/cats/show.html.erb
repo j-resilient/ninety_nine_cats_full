@@ -1,45 +1,55 @@
 <%= render partial: 'shared/errors' %>
-<h1><%= @current_cat.name %></h1>
-<table>
-    <tr>
-        <th>Attribute</th>
-        <th>Value</th>
-    </tr>
-    <tr>
-        <td>Age</td>
-        <td><%= @current_cat.age %></td>
-    </tr>
-    <tr>
-        <td>Birth_Date</td>
-        <td><%= @current_cat.birth_date %></td>
-    </tr>
-    <tr>
-        <td>color</td>
-        <td><%= @current_cat.color %></td>
-    </tr>
-    <tr>
-        <td>sex</td>
-        <td><%= @current_cat.sex %></td>
-    </tr>
-</table>
-
-<h1>Rental Requests</h1>
-<table>
-    <tr>
-        <th>Start Date</th>
-        <th>End Date</th>
-        <th>Status</th>
-    </tr>
-    <% @current_cat.rental_requests.each do |r| %>
+<section class="light-blue-box show">
+    <img src="http://placekitten.com/300/300" alt="Placeholder cat from placekitten.com">
+    <h1><%= @current_cat.name %></h1>
+    <table>
         <tr>
-            <td><%= r.start_date %></td>
-            <td><%= r.end_date %></td>
-            <td><%= r.status %></td>
-            <% if r.pending? %>
-                <td><%= button_to "Approve", approve_cat_rental_request_url(r.id), method: :post %></td>
-                <td><%= button_to "Deny", deny_cat_rental_request_url(r.id), method: :post %></td>
-            <% end %>
-            
+            <th>Attribute</th>
+            <th>Value</th>
         </tr>
-    <% end %>
-</table>
+        <tr>
+            <td>Age</td>
+            <td><%= @current_cat.age %></td>
+        </tr>
+        <tr>
+            <td>Birth_Date</td>
+            <td><%= @current_cat.birth_date %></td>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td><%= @current_cat.color %></td>
+        </tr>
+        <tr>
+            <td>sex</td>
+            <td><%= @current_cat.sex %></td>
+        </tr>
+    </table>
+    <%= link_to 'Edit ' + @current_cat.name,  edit_cat_url(@current_cat)%>
+
+    <h1>Rental Requests</h1>
+    <table>
+        <tr>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+        </tr>
+        <% @current_cat.rental_requests.each do |r| %>
+            <tr>
+                <td><%= r.start_date %></td>
+                <td><%= r.end_date %></td>
+                <% if r.pending? %>
+                        <td>
+                            <div class="show-btns">
+                                <%= link_to "Approve", approve_cat_rental_request_url(r.id), method: :post, class: "show-btn" %>
+                                <%= link_to "Deny", deny_cat_rental_request_url(r.id), method: :post, class: "show-btn" %>
+                            </div>
+                        </td>
+                <% else %>
+                    <td><%= r.status %></td>
+                <% end %>
+                
+            </tr>
+        <% end %>
+    </table>
+    <%= link_to 'Make new request', new_cat_rental_request_url %>
+</section>
