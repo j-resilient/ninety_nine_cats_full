@@ -57,16 +57,17 @@ nav a {
 h1 {
     font-size: 60px;
 }
+.light-blue-box {
+    background-color: var(--light-blue);
+    width: 920px;
+    padding: 50px;
+    margin: 50px auto;
+}
 /* Main Nav */
 .logo{
     height: 60px;
 }
 /* Index page */
-.light-blue-box {
-    background-color: var(--light-blue);
-    width: 920px;
-    margin: 50px auto;
-}
 .cats-holder {
     padding: 20px;
 }
@@ -78,7 +79,6 @@ h1 {
 .show {
     text-align: center;
     width: 500px;
-    padding: 50px;
 }
 table {
     margin: auto;
@@ -100,4 +100,27 @@ td {
     border-bottom: yellow solid 5px;
     padding: 0 8px;
     margin: 5px 10px;
+}
+/* Form Pages */
+.form-page {
+    width: 500px;
+    text-align: center;
+}
+label {
+    color: black;
+    font-weight: bold;
+    margin: 15px 0;
+}
+input, select {
+    background-color: transparent;
+    border: none;
+}
+input, select, textarea {
+    font-family: inherit;
+    border-bottom: yellow solid 5px;
+    font-size: 30px;
+    margin: 5px 10px;
+}
+textarea {
+    width: 300px;
 }

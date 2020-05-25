@@ -1,26 +1,28 @@
 <%= render partial: 'shared/errors' %>
-<h1>Create Rental Request</h1>
+<section class="light-blue-box form-page">
+    <h1>Create Rental Request</h1>
 
-<form action="/cat_rental_requests" method="post">
-    <input type="hidden"
-        name="authenticity_token"
-        value="<%= form_authenticity_token %>">
+    <form action="/cat_rental_requests" method="post">
+        <input type="hidden"
+            name="authenticity_token"
+            value="<%= form_authenticity_token %>">
 
-    <label for="cat_name">Cat</label>
-    <select name="request[cat_id]" id="cat_name">
-        <% Cat.all.each do |cat| %>
-            <option value="<%= cat.id %>"><%= cat.name %></option>
-        <% end %>
-    </select>
-    <br>
+        <label for="cat_name">Cat</label>
+        <select name="request[cat_id]" id="cat_name">
+            <% Cat.all.each do |cat| %>
+                <option value="<%= cat.id %>"><%= cat.name %></option>
+            <% end %>
+        </select>
+        <br>
 
-    <label for="start_date">Start Date</label>
-    <input type="date" id="start_date" name="request[start_date]">
-    <br>
+        <label for="start_date">Start Date</label>
+        <input type="date" id="start_date" name="request[start_date]">
+        <br>
 
-    <label for="end_date">End Date</label>
-    <input type="date" id="end_date" name="request[end_date]">
-    <br>
+        <label for="end_date">End Date</label>
+        <input type="date" id="end_date" name="request[end_date]">
+        <br>
 
-    <input type="submit" value="Submit Query">
-</form>
+        <input type="submit" value="Submit Query">
+    </form>
+</section>
