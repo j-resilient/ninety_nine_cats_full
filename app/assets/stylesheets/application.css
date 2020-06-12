@@ -51,7 +51,7 @@ nav {
 a {
     text-decoration: underline;
 }
-nav a {
+nav a, nav p {
     padding: 0 10px;
 }
 h1 {
@@ -66,6 +66,13 @@ h1 {
 /* Main Nav */
 .logo{
     height: 60px;
+}
+#logout {
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 5px solid yellow;
+    color: yellow;
+    cursor: pointer;
 }
 /* Index page */
 .cats-holder {
