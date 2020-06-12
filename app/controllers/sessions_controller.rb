@@ -14,9 +14,7 @@ class SessionsController < ApplicationController
             flash.now[:errors] = ["Incorrect username or password."]
             render :new
         else
-            # set session token
-            user.reset_session_token!
-            session[:session_token] = user.session_token
+            login_user!(user)
             redirect_to cats_url
         end
     end
