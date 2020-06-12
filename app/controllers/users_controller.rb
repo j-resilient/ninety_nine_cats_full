@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+    before_action :check_if_already_logged_in
+
+    def check_if_already_logged_in
+        redirect_to cats_url if current_user
+    end
+
     def new
         render :new
     end
