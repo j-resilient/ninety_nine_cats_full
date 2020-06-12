@@ -16,9 +16,20 @@
       <h1>
         <%= link_to '99 Cats', cats_url, class: "logo" %>
       </h1>
-      <div>
-        <a href="#">Sign in</a>
-        <a href="#">Sign up</a>
+      <div class="flex">
+        <% if current_user.nil? %>
+          <a href="#">Sign in</a>
+          <a href="#">Sign up</a>
+        <% else %>
+          <p><%= current_user.user_name %></p>
+          <form action="/session" method="post">
+            <input type="hidden"
+              name="authenticity_token"
+              value="<%= form_authenticity_token %>">
+            <input type="hidden" value="delete" name="_method" />
+            <input type="submit" value="Logout" id="logout">
+          </form>
+        <% end %>
       </div>
     </nav>
     <main>
