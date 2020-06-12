@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
 
     def login_user!(user)
         @current_user = user
-        session[session_token] = user.session_token
+        session[:session_token] = user.session_token
     end
 end
