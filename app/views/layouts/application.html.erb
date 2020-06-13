@@ -18,8 +18,8 @@
       </h1>
       <div class="flex">
         <% if current_user.nil? %>
-          <a href="#">Sign in</a>
-          <a href="#">Sign up</a>
+          <a href="/session/new">Sign in</a>
+          <a href="/users/new">Sign up</a>
         <% else %>
           <p><%= current_user.user_name %></p>
           <form action="/session" method="post">
