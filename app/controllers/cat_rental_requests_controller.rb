@@ -1,4 +1,10 @@
 class CatRentalRequestsController < ApplicationController
+    before_action :check_for_owner, only: [:approve, :deny]
+
+    def check_for_owner
+        redirect_to cat_url if current_user.nil? || current_user.cats.where(id: params[:cat_id]).empty?
+    end
+
     def new
         render :new
     end
