@@ -40,7 +40,7 @@
             <tr>
                 <td><%= r.start_date %></td>
                 <td><%= r.end_date %></td>
-                <% if r.pending? %>
+                <% if r.pending? &&  !current_user.nil? && !current_user.cats.where(id: params[:id]).empty?%>
                         <td>
                             <div class="show-btns">
                                 <%= link_to "Approve", approve_cat_rental_request_url(r.id), method: :post, class: "show-btn" %>
