@@ -10,10 +10,12 @@
 #  sex         :string(1)        not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :integer          not null
 #
 # Indexes
 #
-#  index_cats_on_name  (name)
+#  index_cats_on_name     (name)
+#  index_cats_on_user_id  (user_id)
 #
 class Cat < ApplicationRecord
     include ActionView::Helpers::DateHelper
