@@ -1,8 +1,13 @@
 class CatsController < ApplicationController
-    before_action :check_user_logged_in, only: [:new, :create]
+    before_action :check_user_logged_in, only: [:new, :create, :edit, :update]
+    before_action :check_correct_owner, only: [:edit, :update]
 
     def check_user_logged_in
         redirect_to new_user_url if current_user.nil?
+    end
+
+    def check_correct_owner
+        redirect_to cat_url if current_user.cats.where(id: params[:id]).empty?
     end
 
     def index
