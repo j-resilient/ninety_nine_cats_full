@@ -1,4 +1,10 @@
 class CatsController < ApplicationController
+    before_action :check_user_logged_in, only: [:new, :create]
+
+    def check_user_logged_in
+        redirect_to new_user_url if current_user.nil?
+    end
+
     def index
         render :index
     end
@@ -20,6 +26,7 @@ class CatsController < ApplicationController
 
     def create
         @cat = Cat.new(cat_params)
+        @cat.user_id = current_user.id
         if @cat.save
             redirect_to cat_url(@cat)
         else
