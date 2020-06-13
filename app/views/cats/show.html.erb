@@ -24,7 +24,7 @@
             <td><%= @current_cat.sex %></td>
         </tr>
     </table>
-    <% unless current_user.cats.where(id: params[:id]).empty? %>
+    <% unless current_user.nil? || current_user.cats.where(id: params[:id]).empty? %>
         <%= link_to 'Edit ' + @current_cat.name,  edit_cat_url(@current_cat)%>
     <% end %>
     <br><br><br>
