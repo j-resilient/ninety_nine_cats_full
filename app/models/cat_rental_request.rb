@@ -17,7 +17,7 @@
 #  index_cat_rental_requests_on_requester_id  (requester_id)
 #
 class CatRentalRequest < ApplicationRecord
-    validates :end_date, :start_date, :cat_id, presence: true
+    validates :end_date, :start_date, :cat_id, :requester_id, presence: true
     validates :status, inclusion: %w(PENDING APPROVED DENIED)
     validate :does_not_overlap_approved_request
 
