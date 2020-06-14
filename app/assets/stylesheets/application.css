@@ -90,6 +90,7 @@ h1 {
 .show {
     text-align: center;
     width: 500px;
+    padding: 50px;
 }
 table {
     margin: auto;
