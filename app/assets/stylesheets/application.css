@@ -25,6 +25,9 @@ html, body, section, header, nav, h1, h2, p, a {
 
     background: transparent;
 }
+* {
+    box-sizing: border-box;
+}
 body {
     box-sizing: border-box;
     --dark-blue: #000066;
@@ -47,6 +50,7 @@ nav {
     background-color: var(--dark-blue);
     padding: 0 20px;
     height: 60px;
+    width: 100%;
 }
 a {
     text-decoration: underline;
@@ -60,7 +64,6 @@ h1 {
 .light-blue-box {
     background-color: var(--light-blue);
     width: 920px;
-    padding: 50px;
     margin: 50px auto;
 }
 /* Main Nav */
@@ -77,6 +80,7 @@ h1 {
 /* Index page */
 .cats-holder {
     padding: 20px;
+    width: 100%;
 }
 .cat-holder {
     background-color: var(--dark-blue);
@@ -112,6 +116,7 @@ td {
 .form-page {
     width: 500px;
     text-align: center;
+    padding: 50px;
 }
 label {
     color: black;
