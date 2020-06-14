@@ -29,6 +29,11 @@ class User < ApplicationRecord
         class_name: :Cat,
         dependent: :destroy
 
+    has_many :requests,
+        primary_key: :id,
+        foreign_key: :requester_id,
+        class_name: :CatRentalRequest
+
     def reset_session_token!
         self.session_token = self.class.generate_session_token
         self.save
