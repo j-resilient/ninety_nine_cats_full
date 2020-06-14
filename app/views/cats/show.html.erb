@@ -32,12 +32,14 @@
     <h1>Rental Requests</h1>
     <table>
         <tr>
+            <th>User</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th>Status</th>
         </tr>
         <% @current_cat.rental_requests.each do |r| %>
             <tr>
+                <td><%= User.find_by(id: r.requester_id).user_name %></td>
                 <td><%= r.start_date %></td>
                 <td><%= r.end_date %></td>
                 <% if r.pending? &&  !current_user.nil? && !current_user.cats.where(id: params[:id]).empty?%>
