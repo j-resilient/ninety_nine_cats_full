@@ -137,3 +137,7 @@ input, select, textarea {
 textarea {
     width: 300px;
 }
+/* Errors */
+.error {
+    color: black;
+}
