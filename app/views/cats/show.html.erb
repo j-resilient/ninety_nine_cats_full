@@ -39,7 +39,7 @@
         </tr>
         <% @current_cat.rental_requests.each do |r| %>
             <tr>
-                <td><%= User.find_by(id: r.requester_id).user_name %></td>
+                <td><%= r.requester.user_name %></td>
                 <td><%= r.start_date %></td>
                 <td><%= r.end_date %></td>
                 <% if r.pending? &&  !current_user.nil? && !current_user.cats.where(id: params[:id]).empty?%>
