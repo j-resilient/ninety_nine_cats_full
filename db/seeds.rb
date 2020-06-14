@@ -13,6 +13,7 @@ ApplicationRecord.connection.reset_pk_sequence!('cat_rental_requests')
 ApplicationRecord.connection.reset_pk_sequence!('users')
 
 next_year = Date.today.next_year.year.to_s
+requests = []
 
 10.times do 
     user = User.create({
@@ -27,9 +28,14 @@ next_year = Date.today.next_year.year.to_s
         user_id: user.id
     })
 
-    CatRentalRequest.create({
+    requests << CatRentalRequest.new({
         cat_id: cat.id,
         start_date: Date.parse("#{next_year}-01-01"),
         end_date: Date.parse("#{next_year}-01-06")
     })
+end
+
+requests.each do |r|
+    r.requester_id = User.all.sample.id
+    r.save
 end
