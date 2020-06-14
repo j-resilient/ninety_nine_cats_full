@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
 Cat.destroy_all
 CatRentalRequest.destroy_all
-User.destroy_all
 ApplicationRecord.connection.reset_pk_sequence!('cats')
 ApplicationRecord.connection.reset_pk_sequence!('cat_rental_requests')
 ApplicationRecord.connection.reset_pk_sequence!('users')
